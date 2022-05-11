@@ -19,11 +19,13 @@
   <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   
-    {{ $options := (dict "transpiler" "libsass" "targetPath" "css/styles.css" "outputStyle" "expanded") }}
-    {{ $scss := resources.Get "sass/main.scss" }}
-    {{ $scss := $scss | resources.ToCSS  $options }}
-    {{ $scss = $scss | fingerprint | resources.PostProcess }}
-    <link rel="stylesheet" href="{{ $scss.RelPermalink }}" media="screen">
+
+    <!-- from bep: https://discourse.gohugo.io/t/using-resources-postprocess-and-resources-fingerprint-together/28909/3 -->
+    {{ $scss := resources.Get "sass/main.scss" | resources.ToCSS (dict "outputStyle" "expanded") }}
+    {{ if hugo.IsProduction }}
+    {{ $scss = $scss | minify | fingerprint | resources.PostProcess }}
+    {{ end }}
+    <link href="{{ $css.RelPermalink }} {{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}" {{ end}}rel="stylesheet" />
 
     <script type="text/javascript" src="js/master.js">
     </script>
