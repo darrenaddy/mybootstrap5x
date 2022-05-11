@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{ partial "breadcrumbs" . }}
+<div class="container">
+  <h2 class="mt-5">{{ .Title | markdownify}}</h2>
+
+  {{ if .Params.Summary }}
+    <h3 class="font-weight-light font-italic mb-3">{{ .Params.Subtitle | markdownify }}</h3>
+  {{ end }}
+
+  <p class="text-muted mt-3">
+    <a class="text-muted" href="{{ .Permalink }}">Published {{ .Date.Format "January 2, 2006"  }}</a>
+
+    {{ range .Params.tags }}
+      <a class="text-muted" href="{{ "/tags/" | relURL }}{{ . | urlize }}">#{{ . }}</a>
+    {{ end }}
+  </p>
+
+  <article class="article mt-5">
+    {{ .Content }}
+  </article>
+</div>
+
+
+
+{{ $related := .Site.RegularPages.Related . | first 3 }}
+{{ with $related }}
+<div class="container mt-5">
+  <h2 class="text-center">See also</h2>
+  <div class="row">
+  	{{ range . }}
+      <div class="col-md mb-3">
+        <p class="lead mb-0"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></p>
+
+        {{ if .Params.Subtitle }}
+          <p class="lead font-italic mb-0">{{ .Params.Subtitle | markdownify }}</p>
+        {{ end }}
+        <p class="font-weight-light mt-3">{{ .Summary }}</p>
+        <a href="{{ .RelPermalink }}" class="btn btn-primary">Read more</a>
+      </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ end }}

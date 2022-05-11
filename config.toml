@@ -1,0 +1,250 @@
+baseURL = '//www.example.com/'
+languageCode = 'en-us'
+title = 'Triad Machines'
+theme = 'sea-dog'
+relativeURLs = true
+googleAnalytics = ""
+
+[module]
+  [[module.mounts]]
+    source = "node_modules/bootstrap/scss/bootstrap.scss"
+    target = "assets/scss/bootstrap"
+
+  [[module.mounts]]
+    source = "node_modules/@fortawesome/fontawesome-free/scss"
+    target = "assets/scss/fontawesome"
+
+  [[module.mounts]]
+    source = "node_modules/@fortawesome/fontawesome-free/webfonts"
+    target = "static/webfonts"
+
+  [[module.mounts]]
+    source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+    target = "assets/js/bootstrap/bootstrap.bundle.min.js"
+
+[taxonomies]
+  category = 'category'
+  series = 'series'
+  tag = 'tags'
+
+
+############################## navigation ###############################
+[menu]
+
+  [[menu.main]]
+  name = "For Wood"
+  identifier = "wood"
+  URL = "for-timber-stick-builders"
+  weight = 1
+
+  [[menu.main]]
+  name = "Framing Tables"
+  identifier = "framing_tables"
+  parent = "wood"
+  URL = "framing_tables"
+  weight = 10
+
+  [[menu.main]]
+  name = "Sheathing and Squaring Tables"
+  identifier = "sheathing_and_squaring_tables"
+  parent = "wood"
+  URL = "sheathing_tables"
+  weight = 11
+
+  [[menu.main]]
+  name = "Sheathing Bridges"
+  identifier = "sheathing_bridges"
+  parent = "wood"
+  URL = "sheathing_bridges"
+  weight = 12
+
+  [[menu.main]]
+  name = "Component Machines"
+  identifier = "component_machines"
+  parent = "wood"
+  URL = "component_machines"
+  weight = 13
+
+  [[menu.main]]
+  name = "For Steel"
+  identifier = "steel"
+  URL = "for-steel-stud-builders"
+  weight = 2
+
+  [[menu.main]]
+  name = "Framing Tables"
+  identifier = "framing_tables_for_steel_studs"
+  parent = "steel"
+  URL = "framing_tables_for_steel_studs"
+  weight = 20
+
+  [[menu.main]]
+  name = "Sheathing and Squaring Tables"
+  identifier = "sheathing_and_squaring_tables_for_steel"
+  parent = "steel"
+  URL = "sheathing_and_squaring_tables_for_steel"
+  weight = 21
+
+  [[menu.main]]
+  name = "Sheathing Bridges"
+  identifier = "sheathing_bridges_for_steel"
+  parent = "steel"
+  URL = "sheathing_bridges"
+  weight = 22
+
+  [[menu.main]]
+  name = "Component Machines"
+  identifier = "component_machines_for_steel"
+  parent = "steel"
+  URL = "component_machines_for_steel"
+  weight = 23
+  
+  [[menu.main]]
+  name = "Modular"
+  identifier = "modular"
+  URL = "for-modular-builders"
+  weight = 3
+  
+  [[menu.main]]
+  name = "For Stairs"
+  identifier = "stairs"
+  URL = "for-stair-builders"
+  weight = 4
+  
+  [[menu.main]]
+  name = "StairBoss Pro"
+  identifier = "stairboss_pro"
+  parent = "stairs"
+  URL = "machine/stairboss_pro"
+  weight = 40
+  
+  [[menu.main]]
+  name = "Open Stringer Saw"
+  identifier = "open_stringer_saw"
+  parent = "stairs"
+  URL = "machine/open_stringer_saw"
+  weight = 41
+
+    
+  [[menu.main]]
+  name = "Template Stair Router"
+  identifier = "template_stair_router"
+  parent = "stairs"
+  URL = "machine/template_stair_router"
+  weight = 42
+
+  [[menu.main]]
+  name = "Wedge and Glue Block Cutter"
+  identifier = "wedge_and_glue_block_cutter"
+  parent = "stairs"
+  URL = "machine/wedge_and_glue_block_cutter"
+  weight = 43
+
+  [[menu.main]]
+  name = "Staircase Assembly Clamp"
+  identifier = "staircase_assembly_clamp"
+  parent = "stairs"
+  URL = "machine/staircase_assembly_clamp"
+  weight = 44
+  
+  [[menu.main]]
+  name = "Handrail Machine"
+  identifier = "handrail_machine"
+  parent = "stairs"
+  URL = "machine/handrail_machine"
+  weight = 45
+
+  [[menu.main]]
+  name = "Bullnose Saw"
+  identifier = "bullnose_saw"
+  parent = "stairs"
+  URL = "bullnose_saw"
+  weight = 46
+
+  [[menu.main]]
+  name = "Bullnose Saw"
+  identifier = "bullnose_saw"
+  parent = "stairs"
+  URL = "bullnose_saw"
+  weight = 47
+
+  [[menu.main]]
+  name = "XSL Stair Lift"
+  identifier = "xsl_stair_lift"
+  parent = "stairs"
+  URL = "xsl_stair_lift"
+  weight = 48
+
+  [[menu.main]]
+  name = "Heavy Duty Stringer Cart"
+  identifier = "heavy_duty_stringer_cart"
+  parent = "stairs"
+  URL = "heavy_duty_stringer_cart"
+  weight = 49
+
+  [[menu.main]]
+  name = "Pallet Table"
+  identifier = "specialty"
+  URL = "specialty"
+  weight = 5
+
+  [[menu.main]]
+  name = "Drawer Machine"
+  identifier = "drawer_machine"
+  parent = "specialty"
+  URL = "machine/drawer_machine"
+  
+  [[menu.main]]
+  name = "Pallet Machine"
+  identifier = "pallet_table"
+  parent = "specialty"
+  URL = "machine/pallet_table"
+
+  [[menu.main]]
+  name = "Contact Us"
+  URL = "contact-us"
+  weight = 6
+
+[build]
+  writeStats = true
+
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      linkifyProtocol = 'https'
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      [markup.goldmark.parser.attribute]
+        block = false
+        title = true
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = false
+      xhtml = false
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'monokai'
+    tabWidth = 4
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+  

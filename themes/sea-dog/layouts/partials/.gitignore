@@ -1,0 +1,12 @@
+### Hugo ###
+# Generated files by hugo
+/node_modules/
+/public/
+/resources/_gen/
+/themes/noorix1/assets/css/*
+/assets/jsconfig.json
+hugo_stats.json
+
+
+# Temporary lock file while building
+/.hugo_build.lock

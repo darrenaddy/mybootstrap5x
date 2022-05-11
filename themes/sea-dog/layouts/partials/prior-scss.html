@@ -1,0 +1,7 @@
+{{ $styles := resources.Get "css/style.css"}}
+{{ $options := (dict "transpiler" "dartsass" "targetPath" "/css/style.css" "outputStyle" "expanded" "includePaths" (slice "/node_modules")) }}
+{{ $scss := resources.Get "sass/main.scss"}}
+{{ if hugo.IsProduction }}
+  {{ $styles := $styles | toCSS $options | fingerprint }}
+{{ end }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen" />

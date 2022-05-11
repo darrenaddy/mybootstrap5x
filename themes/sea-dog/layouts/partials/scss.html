@@ -1,0 +1,5 @@
+{{ $styles := resources.Get "themes/noorix1/assets/scss/main.scss" }}
+{{ $opts := dict "transpiler" "dartsass" }}
+{{ $scss := resources.Get "themes/noorix1/assets/scss/main.scss" }}
+{{ $styles := $scss | resources.ToCSS $opts }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />

@@ -1,0 +1,59 @@
+{{ $currentPage := . }}
+<section id="topbar" class="d-flex align-items-center" style="background: #515d6a;">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-center">    
+      <i class="bi bi-phone d-flex align-items-center"><span>+1 800-568-7423</span></i>
+      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Fri: 8:00 AM - 5:00 PM | Central</span></i>
+    </div>
+  </section>
+
+
+    <div class="container-fluid container-xl d-flex align-items-center">
+        <a href="index.html" class="logo me-auto" style="color:#000000; text-decoration: none;">
+            {{ $img := resources.Get "img/logo.png" }}
+            {{ with $img }}
+            <img src="{{ $img.RelPermalink }}" alt="Triad Logo" class="img-fluid">
+            {{ end }} {{ .Site.Title }}</a>
+        </a>
+<!-- Navigation -->
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid text-center">
+        <a class="navbar-brand" href="{{ .Site.BaseURL }}">&gt;</a>          
+    <button aria-label="Navigation Button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+      
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+                {{ if .HasChildren }}
+                    <li class="nav-item dropdown {{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ .Pre }}
+                            <span>{{ .Name }}</span>
+                        </a>
+                    
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {{ range .Children }}
+                            <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                                <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
+                            </li>
+                        {{ end }}
+                    </ul>
+                </li>
+                {{ else }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ .URL }}">
+                            {{ .Pre }}
+                            <span>{{ .Name }}</span>
+                        </a>
+                    </li>
+                {{ end }}
+            {{ end }}
+            <li><a href="http://triadruvoparts.com" class="getstarted" target="_blank">Parts & Service</a></li>
+      </ul>
+    </div>
+    <i class="bi bi-list mobile-nav-toggle"></i>
+  </nav>
+</div>
+
+<main id="main" class="main"> 
