@@ -22,10 +22,7 @@ googleAnalytics = ""
     source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     target = "assets/js/bootstrap/bootstrap.bundle.min.js"
 
-[taxonomies]
-  category = 'category'
-  series = 'series'
-  tag = 'tags'
+
 
 
 ############################## navigation ###############################
