@@ -25,7 +25,7 @@
     {{ if hugo.IsProduction }}
     {{ $scss = $scss | minify | fingerprint | resources.PostProcess }}
     {{ end }}
-    <link href="{{ $scss.RelPermalink }} {{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}" {{ end}}rel="stylesheet" />
+    <link href="{{ $scss.RelPermalink }} {{ if hugo.IsProduction }} integrity="{{ $scss.Data.Integrity }}" {{ end}}rel="stylesheet" />
 
     <script type="text/javascript" src="js/master.js">
     </script>
