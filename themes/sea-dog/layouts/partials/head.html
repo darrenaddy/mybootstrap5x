@@ -21,8 +21,9 @@
   
     {{ $options := (dict "transpiler" "libsass" "targetPath" "css/styles.css" "outputStyle" "expanded") }}
     {{ $scss := resources.Get "sass/main.scss" }}
-    {{ $style := $scss | resources.ToCSS  $options | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}" media="screen">
+    {{ $scss := $scss | resources.ToCSS  $options }}
+    {{ $scss = $scss | fingerprint | resources.PostProcess }}
+    <link rel="stylesheet" href="{{ $scss.RelPermalink }}" media="screen">
 
     <script type="text/javascript" src="js/master.js">
     </script>
