@@ -6,13 +6,13 @@
     </div>
   </section>
 
-<header id="header" class="d-flex align-items-center header-transparent justify-content-between">
+<header id="header" class="d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center">
-        <a href="index.html" class="logo me-auto" style="color:#000000; text-decoration: none;">
+        <a href="index.html" class="logo me-auto" style="color:#ffffff; text-decoration: none;">
             {{ $img := resources.Get "img/logo.png" }}
             {{ with $img }}
             <img src="{{ $img.RelPermalink }}" alt="Triad Logo" class="img-fluid">
-            {{ end }} {{ .Site.Title }}</a>
+            {{ end }} <h1>{{ .Site.Title }}</h1>
         </a>
 <!-- Navigation -->
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">

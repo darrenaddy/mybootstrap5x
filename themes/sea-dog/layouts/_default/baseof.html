@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
+<html lang="en">
+    {{- partial "head" . -}}
     <body>
-        <div id="content" style="background-image:url(img/triad-wood-texture-h.png);background-position:center center;background-size:800px;">
-        {{- partial "fresh-offcanvas.html" . -}}
-            {{- block "main" . }}{{- end }}
-        </div>
-        {{- partial "footer.html" . -}}
+        {{- partial "newheader" . -}}
+            {{- block "main" . -}}{{- end -}}      
+        {{- partial "footer" . -}}
     </body>
 </html>

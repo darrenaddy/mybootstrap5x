@@ -7,23 +7,41 @@ googleAnalytics = ""
 
 [module]
   [[module.mounts]]
-    source = "node_modules/bootstrap/scss/bootstrap.scss"
-    target = "assets/scss/bootstrap"
-
+    source = 'content'
+    target = 'content'
   [[module.mounts]]
-    source = "node_modules/@fortawesome/fontawesome-free/scss"
-    target = "assets/scss/fontawesome"
-
+    source = 'static'
+    target = 'static'
   [[module.mounts]]
-    source = "node_modules/@fortawesome/fontawesome-free/webfonts"
-    target = "static/webfonts"
-
+    source = 'layouts'
+    target = 'layouts'
   [[module.mounts]]
-    source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-    target = "assets/js/bootstrap/bootstrap.bundle.min.js"
-
-
-
+    source = 'data'
+    target = 'data'
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'i18n'
+    target = 'i18n'
+  [[module.mounts]]
+    source = 'archetypes'
+    target = 'archetypes'
+  [[module.mounts]]
+    source = 'node_modules/bootstrap/scss/bootstrap.scss'
+    target = 'assets/scss/bootstrap'
+  [[module.mounts]]
+    source = 'node_modules/@fortawesome/fontawesome-free/scss'
+    target = 'assets/scss/fontawesome'
+  [[module.mounts]]
+    source = 'node_modules/@fortawesome/fontawesome-free/webfonts'
+    target = 'static/webfonts'
+  [[module.mounts]]
+    source = 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
+    target = 'assets/js/bootstrap/bootstrap.bundle.min.js'
+  [[module.mounts]]
+    source = 'node_modules/boxicons/css/boxicons.min.css'
+    target = 'assets/css/boxicons'
 
 ############################## navigation ###############################
 [menu]
