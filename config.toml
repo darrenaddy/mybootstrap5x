@@ -41,7 +41,7 @@ googleAnalytics = ""
     target = 'assets/js/bootstrap/bootstrap.bundle.min.js'
   [[module.mounts]]
     source = 'node_modules/boxicons/css/boxicons.min.css'
-    target = 'assets/css/boxicons/boxicons.min.css'
+    target = 'static/vendor/css/boxicons/boxicons.min.css'
 
 ############################## navigation ###############################
 [menu]
